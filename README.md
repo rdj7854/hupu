@@ -22,3 +22,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+预览网址：https://rdj7854.github.io/hupu/dist/index.html
