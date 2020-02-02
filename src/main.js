@@ -8,11 +8,15 @@ import VueAxios from "vue-axios";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
+
+
 // Vue切换路由时报错Uncaught (in promise) NavigationDuplicated {_name: "NavigationDuplicated"}解决方法
 const originalPush = VueRouter.prototype.push;
 VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err);
 };
+
+
 
 
 
