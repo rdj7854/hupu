@@ -1,4 +1,7 @@
-# demo1
+ Vue-hupu 实现一个简单的体育社区
+===========
+预览网址：https://rdj7854.github.io/hupu/dist/index.html
+-------------------------------------------------------
 
 ## Project setup
 ```
@@ -20,8 +23,6 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-预览网址：https://rdj7854.github.io/hupu/dist/index.html
+
