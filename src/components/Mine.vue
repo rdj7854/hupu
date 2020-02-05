@@ -1,5 +1,6 @@
 <template>
   <div>
+    <br/>
     <el-page-header @back="goBack" content="欢迎来到hupu"></el-page-header>
     <br />
     <div class="loginbtn">

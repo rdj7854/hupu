@@ -1,60 +1,48 @@
 <template>
-  <!-- @click="isShowEmojiPanel=false" -->
-  <div>
-    <div @click="isShowEmojiPanel=false">
-      <!-- 输入框 -->
-      <div class="text-input">
-        <el-input
-          id="textpanel"
-          type="textarea"
-          :autosize="{ minRows: 3}"
-          placeholder="请输入内容"
-          v-model="textarea"
-        ></el-input>
-        <div class="clear-text" v-show="cleanable" @click="cleanText">
-          <i class="el-icon-error" style="color:grey"></i>
-        </div>
-      </div>
-      <!-- 发送栏 -->
-      <div class="send">
-        <el-image
-          class="send-emoji"
-          :src="emojiUrl"
-          lazy
-          @click.stop="isShowEmojiPanel=!isShowEmojiPanel"
-        ></el-image>
-        <div class="send-btn">
-          <el-button @click="sendMsg" type="success">发送</el-button>
-        </div>
-      </div>
-
-      <!-- 内容列表 -->
-      <el-card class="box-card" v-for="(item,index) in msg" :key="index" :msgId="item.id">
+  <div >
+    <br />
+    <BaseInput @sendData="getDataFromSon"/>
+    
+    <!-- 内容列表 -->
+    <div class="content-list" v-for="(item,index) in msg" :key="index" :msgId="item.id">
+      <!-- 顶部信息栏 -->
+      <div class="user-info-bar">
         <!-- 用户信息 -->
-        <el-row ow class="avator" type="flex" justify="space-between">
-          <el-col :span="14">
-            <el-row>
-              <el-col :span="12">
-                <el-avatar class="avator-size" icon="el-icon-user-solid"></el-avatar>
-              </el-col>
-              <el-col :span="12">
-                <span class="nickName">{{item.nickName}}</span>
-              </el-col>
-            </el-row>
-          </el-col>
-          <el-col v-if="item.followStatus">
-            <el-button @click="changeFollow(index)" class="follow" type="primary" round>关注</el-button>
-          </el-col>
-          <el-col v-else>
-            <el-button class="follow" type="warning" @click="open(index)">已关注</el-button>
-          </el-col>
-        </el-row>
-        <!-- 具体内容 -->
-        <div v-html="item.text">{{item.text}}</div>
+        <div class="user-info">
+          <el-avatar class="avator" icon="el-icon-user-solid"></el-avatar>
+          <div class="nick-name">
+            <div >{{item.nickName}}</div>
+            <div class="sign">@公众号*****17小时前</div>
+          </div>
+        </div>
+        <!-- 关注按钮 -->
+        <div v-if="item.followStatus">
+          <el-button @click="changeFollow(index)" type="primary" round>关注</el-button>
+        </div>
+        <div v-else>
+          <el-button type="warning" @click="open(index)">已关注</el-button>
+        </div>
+      </div>  
+
+      <!-- 具体内容 -->
+      <div class="content" v-html="item.text">{{item.text}}</div>
+
+      <!-- 底部栏 -->
+      <div class="content-footer">
+        
+        <!-- 点赞 -->
+        <div class="like">
+          <i class="el-icon-thumb" @click="addLikes(index)"> {{item.likes}}</i>
+        </div>
+        <!-- 评论 -->
+        <div class="comment">
+          <i class="el-icon-chat-round"> 30</i>
+        </div>
         <!-- 删除按钮 -->
         <div class="delemsg">
           <i class="el-icon-delete" @click="visible = true"></i>
         </div>
+
         <el-dialog title="提示" :visible.sync="visible" width="80%">
           <span>确定删除内容吗？</span>
           <span slot="footer" class="dialog-footer">
@@ -63,72 +51,46 @@
           </span>
         </el-dialog>
 
-        <!-- 点赞 -->
-        <div class="like">
-          <i class="el-icon-thumb" @click="addLikes(index)"> {{item.likes}}</i>
-        </div>
-      </el-card>
-    </div>
+        
+      </div>
 
-    <!-- 表情 -->
-    <emoji-panel v-if="isShowEmojiPanel" @emojiClick="appendEmoji"></emoji-panel>
+      <el-divider>
+        <i class="el-icon-basketball"></i>
+      </el-divider>
+    </div>
+ <el-backtop ></el-backtop>
   </div>
 </template>
 
 <script>
-import emojiPic from "../assets/images/face_logo.png";
-import EmojiPanel from "./EmojiPanel.vue";
+import BaseInput from './BaseInput.vue'
 export default {
   data() {
     return {
-      textarea: "",
-      cleanable: false,
       msg: [],
       visible: false,
-      emojiUrl: emojiPic,
-      isShowEmojiPanel: false,
-      msgId: ""
+      msgId: "",
     };
   },
-  components: {
-    EmojiPanel
+  components:{
+    BaseInput
   },
+ 
   methods: {
     getMsg() {
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 6; i++) {
         this.msg.push({
           id: i,
-          text: "这是第" + i + "条内容",
+          text: `我是技术胖，在全国新冠疫情的笼罩下，很多小伙伴不敢出门（我们小区已经戒严，每家只发一个通行证，每天只可以外出一小时），可能很多小伙伴会因此丢掉工作，技术胖作为一个还有100万房贷要还的程序员，经济上实在没办法帮助太多，但也要身体力行，抗击疫情，尽自己所能作点什么。
+            所以我在这里整理了我所有的视频教程，并全部免费掉，希望小伙伴们能更简单的在家学习。疫情过后，我们一定会有更美好的明天。加油！奥里给！！！`,
           nickName: "昵称" + Math.floor(Math.random() * 100),
           likes: Math.floor(Math.random() * 10),
           followStatus: true
         });
       }
     },
-    cleanText() {
-      this.textarea = "";
-      this.cleanable = false;
-    },
-    sendMsg() {
-      if (this.textarea) {
-        this.msg.unshift({
-          id: this.msg.length,
-          text: this.textarea.replace(/:.*?:/g, this.emoji),
-          nickName: "昵称" + Math.floor(Math.random() * 100),
-          likes: Math.floor(Math.random() * 10),
-          followStatus: true
-        });
-        this.textarea = "";
-        this.cleanable = false;
-      } else {
-        this.warming();
-      }
-    },
-    warming() {
-      this.$message({
-        message: "内容不能为空",
-        type: "warning"
-      });
+    getDataFromSon(data){
+      this.msg.unshift(data)
     },
     deleMsg(msgId) {
       this.visible = false;
@@ -164,82 +126,68 @@ export default {
           });
         });
     },
-    emoji(word) {
-      // 生成html
-      const type = word.substring(1, word.length - 1);
-      return `<span class="emoji-item-common emoji-${type} emoji-size-small" ></span>`;
-    },
-    appendEmoji(text) {
-      const el = document.getElementById("textpanel");
-      this.textarea = el.value + ":" + text + ":";
-    }
+   
   },
   mounted() {
     this.getMsg();
   },
-  watch: {
-    textarea(newVal) {
-      if (newVal.length >= 1) {
-        this.cleanable = true;
-      }
-    }
-  }
+  
 };
 </script>
 
-<style lang="scss">
-.text {
-  font-size: 14px;
+<style >
+.content-list {
+  padding: 10px;
 }
-.item {
-  padding: 18px 0;
+.user-info-bar{
+  display:flex;
+  justify-content:space-between
 }
-.box-card {
-  width: 90%;
-  margin: 0 auto;
+.user-info{
+  display: flex;
+  align-items: center;
+  padding-bottom:10px
 }
-.text-input {
-  margin: 10px 20px 5px 20px;
-  position: relative;
+.nick-name{
+  padding-left:10px
 }
-.clear-text {
-  position: absolute;
-  top: 5px;
-  right: 10px;
+.sign{
+  color:#888;
+  font-size:12px
 }
-.send {
-  padding: 0 15px 10px 15px;
+.content{
+  width:80%;
+  margin:0  20px 0 45px;
+  flex-wrap:wrap;
+  color: #5c6066
 }
-.send-emoji {
-  width: 30px;
+.content-footer{
+  height:34px;
+  margin-top:20px;
+  display:flex;
+  justify-content:space-between;
+  border-top:1px #888 solid;
+  border-bottom:1px #888 solid;
+  color:#888
 }
-.send-btn {
-  float: right;
-  /* margin-bottom: 20px; */
+.comment{
+  width:33%;
+  border-left:1px #888 solid;
+  border-right:1px #888 solid;
+  display:flex;
+  justify-content:center;
+  align-items:center
 }
-.delemsg {
-  float: right;
+.like{
+  width:33%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-.follow {
-  float: right;
+.delemsg{
+  width:33%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-.like {
-  padding-top: 5px;
-}
-.emoji-item-common {
-  background: url("../assets/images/emoji_sprite.png");
-  // float:left;
-  display: inline-block;
-  &:hover {
-    cursor: pointer;
-  }
-}
-.emoji-size-small {
-  // 表情大小
-  zoom: 0.3;
-}
-.emoji-size-large {
-  zoom: 0.5; // emojipanel表情大小
-}
-@import "../assets/css/emoji.css"; // 导入精灵图样式
 </style>

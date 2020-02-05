@@ -1,21 +1,18 @@
 <template>
-  <div id="app">
-      <el-container>
-        <el-header><Bar></Bar></el-header>
-        <el-main><router-view ></router-view></el-main>
-        <el-footer class="footer"><NavBar ></NavBar></el-footer>
-      </el-container>
-    
+  <div id="app"> 
+      <Bar></Bar>
+      <router-view replace></router-view>
+      <!-- <NavBar class="footer" ></NavBar> -->
   </div>
 </template>
 
 <script>
 import Bar from './components/Bar'
-import NavBar from './components/NavBar'
+// import NavBar from './components/NavBar'
 export default {
   components:{
     Bar,
-    NavBar
+    // NavBar
   },
 }
 </script>

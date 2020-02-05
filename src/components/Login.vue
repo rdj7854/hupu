@@ -1,5 +1,6 @@
 <template>
   <div>
+    <br/>
     <el-page-header @back="goBack" content="账户登录"></el-page-header>
     <div class="avatar">
       <el-avatar :size="70" icon="el-icon-user-solid"></el-avatar>
