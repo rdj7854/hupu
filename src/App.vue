@@ -1,21 +1,28 @@
 <template>
   <div id="app"> 
-      <Bar></Bar>
-      <router-view replace></router-view>
-      <!-- <NavBar class="footer" ></NavBar> -->
+      <Header />
+      <!-- <ChannelBar/> -->
+      <Bar />
+      <router-view />
   </div>
 </template>
 
 <script>
-import Bar from './components/Bar'
-// import NavBar from './components/NavBar'
+const Bar = ()=> import('./components/Bar')
+const Header = ()=>import('./components/Header')
+// const ChannelBar = ()=>import('./components/ChannelBar')
 export default {
   components:{
-    Bar,
-    // NavBar
+    Header,
+    // ChannelBar,
+    Bar
   },
 }
 </script>
 
 <style>
+body{
+  
+  background-color:#f9f9f9
+}
 </style>

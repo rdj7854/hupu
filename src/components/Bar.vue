@@ -6,9 +6,10 @@
       class="el-menu-demo"
       mode="horizontal"
       @select="handleSelect"
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b"
+      background-color="#f9f9f9"
+      text-color="#AAB3C8"
+      active-text-color="#C01E2F"
+     
     >
       <!-- 基本的导航条 -->
       <el-menu-item index="1">
@@ -21,7 +22,7 @@
         <router-link to="/home">社区</router-link>
       </el-menu-item>
       <el-menu-item index="4">
-        <router-link to="/shop">团购</router-link>
+        <router-link to="/shop">装备</router-link>
       </el-menu-item>
       <!-- ＋  点击显示频道 -->
       <div class="more" @click="drawer = true" type="primary">
@@ -144,7 +145,7 @@ ul {
   margin: 10px 20px 20px 45px;
 }
 .more {
-  color: white;
+  color: #AAB3C8;
   float: right;
   font-size: 25px;
   padding-top: 15px;

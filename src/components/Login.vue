@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     goBack() {
-      this.$router.push({path:'/banner'})
+      this.$router.go(-1)
     },
     login() {
       if (this.userinput != "" && this.pwdinput != "") {

@@ -40,12 +40,6 @@ export default {
     show(index) {
       this.activeIndex = index;
       this.isActive = true;
-      // if (index == 0) {
-      //   this.$router.push({ path: "/login"});
-      // }
-      // else if (index == 3) {
-      //   this.$router.push({ path: "/mine" });
-      // }
       switch(index){
         case 0:this.$router.push({ path: "/login"})
         break;

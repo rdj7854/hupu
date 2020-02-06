@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Emoji from './Emoji.vue'
+const Emoji = ()=> import('./Emoji.vue')
 export default {
     data(){
         return{

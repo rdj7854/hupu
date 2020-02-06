@@ -63,7 +63,8 @@
 </template>
 
 <script>
-import BaseInput from './BaseInput.vue'
+
+const BaseInput = ()=>import('./BaseInput.vue')
 export default {
   data() {
     return {

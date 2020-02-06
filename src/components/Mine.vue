@@ -39,12 +39,10 @@ export default {
   },
   methods: {
     login() {
-      this.$router.replace({ path: "/login" });
+      this.$router.push({ path: "/login" });
     },
     goBack() {
-      console.log(111)
-      this.$router.push({path:'/banner'})
-
+      this.$router.go(-1)
     }
   }
 };

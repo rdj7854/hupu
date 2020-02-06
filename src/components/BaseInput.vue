@@ -35,7 +35,8 @@
 </template>
 <script>
 import emojiPic from "../assets/images/face_logo.png";
-import EmojiPanel from "./EmojiPanel.vue";
+// import EmojiPanel from "./EmojiPanel.vue";
+const EmojiPanel = ()=> import('./EmojiPanel.vue')
 export default {
     data(){
         return{
