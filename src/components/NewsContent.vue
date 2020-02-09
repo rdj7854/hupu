@@ -1,8 +1,7 @@
 <template>
   <div>
-    <br/>
-    <el-page-header @back="goBack"></el-page-header>
-    <h1>{{items.title}}</h1>
+    <i class="el-icon-arrow-left" @click="goBack"></i>
+    <h2>{{items.title}}</h2>
     <p class="source">{{items.source}}</p>
     <el-divider>
       <i class="el-icon-basketball"></i>

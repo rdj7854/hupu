@@ -16,6 +16,7 @@
     </el-collapse>
     {{count}}
     <button @click="addNum"></button>
+    <el-backtop ></el-backtop>
   </div>
 </template>
 

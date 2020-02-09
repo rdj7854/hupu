@@ -1,7 +1,6 @@
 <template>
   <div>
-    <br/>
-    <el-page-header @back="goBack" content="账户登录"></el-page-header>
+    <HeaderMy />
     <div class="avatar">
       <el-avatar :size="70" icon="el-icon-user-solid"></el-avatar>
     </div>
@@ -18,6 +17,7 @@
 </template>
 
 <script>
+const HeaderMy = ()=>import('@/components/HeaderMy')
 export default {
   data() {
     return {
@@ -26,6 +26,9 @@ export default {
       paw: 123,
       user: 123
     };
+  },
+  components:{
+    HeaderMy
   },
   methods: {
     goBack() {

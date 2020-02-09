@@ -1,8 +1,5 @@
 <template>
   <div>
-    <br/>
-    <el-page-header @back="goBack" content="欢迎来到hupu"></el-page-header>
-    <br />
     <div class="loginbtn">
       <el-button type="warning" @click="login">马上登录</el-button>
     </div>
@@ -14,7 +11,7 @@
     </el-divider>
 
     <div class="list-item" v-for="(item,index) in list" :key="index">
-      <i style="color:#E6A23C" :class="[item.icon]"></i>
+      <i style="color:#C01E2F" :class="[item.icon]"></i>
       <span>{{item.label}}</span>
       <span class="right-icon">
         <i class="el-icon-arrow-right"></i>

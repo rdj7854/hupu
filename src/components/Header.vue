@@ -1,20 +1,26 @@
 <template>
     <div class="header">
-        <div class="avatar" @click="routerJump">
+        <div class="avatar" @click="jumpToMyPage">
             <el-avatar :size='24' src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" ></el-avatar>
         </div>
         <div class="logo">
         </div>
-        <div class="search">
+        <div class="search" @click="jumpToMySearch">
         </div>
     </div>
 </template>
 <script>
 export default {
     methods:{
-        routerJump(){
+        jumpToMyPage(){
             this.$router.push({
-                path:'/mine'
+                path:'/my'
+            })
+        },
+        jumpToMySearch(){
+            console.log(111)
+            this.$router.push({
+                path:'/search'
             })
         }
     }

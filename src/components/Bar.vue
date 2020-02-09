@@ -9,7 +9,6 @@
       background-color="#f9f9f9"
       text-color="#AAB3C8"
       active-text-color="#C01E2F"
-     
     >
       <!-- 基本的导航条 -->
       <el-menu-item index="1">
@@ -84,7 +83,7 @@ export default {
       activeIndex2: "1",
       drawer: false,
       direction: "btt", //频道抽屉的方向
-      size: "80%", //抽屉的大小
+      size: "90%", //抽屉的大小
       channel: [],
       channel2: [],
       isEdit: true,
