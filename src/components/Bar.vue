@@ -139,6 +139,7 @@ ul {
 .channel li {
   float: left;
   padding: 5px;
+  margin-left: 5px;
 }
 .channel-btn {
   margin: 10px 20px 20px 45px;

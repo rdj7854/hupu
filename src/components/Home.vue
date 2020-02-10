@@ -79,11 +79,10 @@ export default {
  
   methods: {
     getMsg() {
-      for (let i = 0; i < 6; i++) {
+      for (let i = 1; i < 4; i++) {
         this.msg.push({
           id: i,
-          text: `我是技术胖，在全国新冠疫情的笼罩下，很多小伙伴不敢出门（我们小区已经戒严，每家只发一个通行证，每天只可以外出一小时），可能很多小伙伴会因此丢掉工作，技术胖作为一个还有100万房贷要还的程序员，经济上实在没办法帮助太多，但也要身体力行，抗击疫情，尽自己所能作点什么。
-            所以我在这里整理了我所有的视频教程，并全部免费掉，希望小伙伴们能更简单的在家学习。疫情过后，我们一定会有更美好的明天。加油！奥里给！！！`,
+          text: `这是第${i}条信息`,
           nickName: "昵称" + Math.floor(Math.random() * 100),
           likes: Math.floor(Math.random() * 10),
           followStatus: true

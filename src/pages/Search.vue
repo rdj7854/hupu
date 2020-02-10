@@ -90,7 +90,8 @@ export default {
 }
 .search-header{
   display:flex;
-  justify-content:space-between
+  justify-content:space-between;
+  padding: 0.3125rem;
 }
 .search-header i{
   color:#888
