@@ -29,6 +29,7 @@ export default {
 
 <style scoped>
 .header{
+    padding: 2px 10px;
     height:45px;
     display: flex;
     justify-content:space-between;

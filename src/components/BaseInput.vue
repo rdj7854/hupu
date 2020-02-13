@@ -35,7 +35,8 @@
 </template>
 <script>
 import emojiPic from "../assets/images/face_logo.png";
-// import EmojiPanel from "./EmojiPanel.vue";
+import { Toast } from 'vant';
+
 const EmojiPanel = ()=> import('./EmojiPanel.vue')
 export default {
     data(){
@@ -74,10 +75,7 @@ export default {
           
         },
          warming() {
-            this.$message({
-                message: "内容不能为空",
-                type: "warning"
-            });
+            Toast.fail('内容不能为空');
         },
          emoji(word) {
             // 生成html

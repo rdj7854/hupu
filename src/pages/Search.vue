@@ -71,9 +71,9 @@ export default {
 <style scoped>
 .header{
   display:flex;
-  justify-content:space-around;
+  justify-content:space-between;
   align-items:center;
-  padding-bottom:10px
+  padding:3px 5px 10px 5px
 }
 .header .logo{
     width: 65px;
@@ -83,7 +83,7 @@ export default {
     background-size: 188px 185px;
 }
 .input{
-  width:240px
+  width:250px
 }
 .cancel ,.search p{
   color:#AAB3C8
@@ -91,7 +91,7 @@ export default {
 .search-header{
   display:flex;
   justify-content:space-between;
-  padding: 0.3125rem;
+  padding: 5px
 }
 .search-header i{
   color:#888

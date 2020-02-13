@@ -22,8 +22,8 @@ export default {
 
 <style scoped>
 .header{
-  padding-top:5px;
-  height: 40px
+  padding-top:8px;
+  height: 40px;
 }
 .header::after{
     display: block;
@@ -34,12 +34,14 @@ export default {
   font-size: 20px;
   color: #c01e2f;
   float: left;
+  padding-left: 5px
 }
 
 .logo{
    display: flex;
    justify-content: center;
    align-items: center;
+   padding-top: 5px
 }
 
 

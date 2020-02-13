@@ -81,7 +81,7 @@
       />
     </van-popup>
     <!--  选择尺码弹窗-->
-    <el-drawer :visible.sync="showChooseDialog" :with-header="true" direction="btt" size="80%">
+    <el-drawer :visible.sync="showChooseDialog"  direction="btt" size="80%">
       <div class="prodution-header">
         <div class="prodution-img">
           <img :src="prodution.url" width="100px">

@@ -64,4 +64,7 @@ export default {
   font-size: 20px;
   padding: 10px;
 }
+.loginbtn{
+  padding: 5px
+}
 </style>

@@ -7,13 +7,15 @@
       </el-carousel-item>
     </el-carousel>
     <br />
-    <el-collapse v-for="item in data" :key="item.id">
+    <div class="banner-news">
+      <el-collapse v-for="item in data" :key="item.id">
       <el-collapse-item :title="item.title" class="title">
         <p>{{item.source}}</p>
         <h2>{{item.time}}</h2>
         <h2 v-html="item.body">{{item.body}}</h2>
       </el-collapse-item>
     </el-collapse>
+    </div>
     {{count}}
     <button @click="addNum"></button>
     <el-backtop ></el-backtop>
@@ -62,5 +64,8 @@ export default {
 
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
+}
+.banner-news{
+  padding: 8px
 }
 </style>
