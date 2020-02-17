@@ -76,6 +76,7 @@
 </template>
 
 <script>
+import { Toast } from 'vant';
 export default {
   data() {
     return {
@@ -116,10 +117,11 @@ export default {
     },
     done() {
       this.drawer = false;
-      this.$message({
-        message: "修改成功",
-        type: "success"
-      });
+      // this.$message({
+      //   message: "修改成功",
+      //   type: "success"
+      // });
+      Toast.success('修改成功');
     }
   },
   mounted() {

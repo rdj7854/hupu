@@ -29,7 +29,15 @@ export default {
       news:[]
     };
   },
+  methods:{
+    getData(){
+      this.axios.get('http://localhost:3000/goods').then(res=>{
+        console.log(res)
+      })
+    }
+  },
   mounted(){
+    this.getData()
     this.news = this.$store.state.news
   }
 };

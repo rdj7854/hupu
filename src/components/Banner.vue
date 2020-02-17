@@ -16,8 +16,10 @@
       </el-collapse-item>
     </el-collapse>
     </div>
-    {{count}}
-    <button @click="addNum"></button>
+    <div style="display:none">
+      {{count}}
+      <button @click="addNum"></button>
+    </div>
     <el-backtop ></el-backtop>
   </div>
 </template>

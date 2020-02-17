@@ -9,6 +9,16 @@ const originalPush = Router.prototype.push;
 Router.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err);
 };
+const Home = () => import("@/components/Home")
+const Banner = resolve => require(["@/components/Banner"], resolve)
+const News = resolve => require(["@/components/News"], resolve)
+const NewsContent = resolve => require(["@/components/NewsContent"], resolve)
+const Shop = resolve => require(["@/components/Shop"], resolve)
+const Login =  resolve => require(["@/components/Login"], resolve)
+const Mine = resolve => require(["@/components/Mine"], resolve)
+const My = resolve => require(["@/pages/My"], resolve)
+const Search = resolve => require(["@/pages/Search"], resolve)
+const ShopContent = resolve => require(["@/pages/ShopContent"], resolve)
 export default new Router({
   linkActiveClass: "active",
   routes: [
@@ -19,49 +29,49 @@ export default new Router({
         {
           path: "home",
           // component: resolve => require(["@/components/Home"], resolve)
-          component: () => import("@/components/Home")
+          component: Home
         },
         {
           path: "banner",
-          component: resolve => require(["@/components/Banner"], resolve)
+          component: Banner
         },
         {
           path: "news",
-          component: resolve => require(["@/components/News"], resolve)
+          component: News
         },
         {
           path: "newscontent/:id",
-          component: resolve => require(["@/components/NewsContent"], resolve)
+          component: NewsContent
         },
         {
           path: "shop",
-          component: resolve => require(["@/components/Shop"], resolve)
+          component: Shop
         }
       ]
     },
     {
       path: "/login",
-      component: resolve => require(["@/components/Login"], resolve)
+      component:Login
     },
     {
       path: "/mine",
-      component: resolve => require(["@/components/Mine"], resolve)
+      component: Mine
     },
     {
       path: "/my",
-      component: resolve => require(["@/pages/My"], resolve)
+      component: My
     },
     {
       path: "/search",
-      component: resolve => require(["@/pages/Search"], resolve)
+      component: Search
     },
     {
       path: "/shopcontent",
-      component: resolve => require(["@/pages/ShopContent"], resolve)
+      component: ShopContent
     },
     {
       path: "*",
-      redirect: "/#/banner"
+      redirect: "/banner"
     }
   ]
 });

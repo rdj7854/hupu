@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="shop-box">
-      <ul v-for="item in produtions" :key="item.id" >
-        <li class="shop-item" @click="jumpToShopContent(item)">
+      <ul >
+        <li v-for="item in produtions" :key="item.id" class="shop-item" @click="jumpToShopContent(item)">
           <div class="item-img">
             <img :src="item.url" class="image" />
           </div>
@@ -102,7 +102,7 @@ li {
 .item-title,
 .item-place {
   color: #999;
-  font-size: 12px;
+  font-size: 13px;
   padding: 3px 0 3px 0;
 }
 .item-shop{

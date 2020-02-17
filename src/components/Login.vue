@@ -26,7 +26,7 @@
 			return {
 				userinput: "",
 				pwdinput: "",
-				paw: 123,
+				pwd: 123,
 				user: 123
 			};
 		},
@@ -39,22 +39,12 @@
 			},
 			login() {
 				if (this.userinput != "" && this.pwdinput != "") {
-					console.log(111);
-					if (this.pwd != this.pwdinput && this.user != this.userinput) {
-						// this.$message({
-						//   message: "账号密码错误",
-						//   type: "error"
-						// });
-						Toast.fail('账号密码错误');
-					} else {
-						console.log(11);
-						this.loginSuccess();
+					if(this.pwd == this.pwdinput && this.user == this.userinput){
+						this.loginSuccess()
+					}else{
+						Toast.fail('账号密码错误')
 					}
 				} else {
-					// this.$message({
-					//   message: "账号密码不能为空",
-					//   type: "warning"
-					// });
 					Toast.fail('账号密码不能为空');
 				}
 			},
@@ -67,12 +57,7 @@
 				});
 				setTimeout(() => {
 					loading.close();
-					// this.$message({
-					// 	message: "登陆成功！",
-					// 	type: "success"
-					// }).then(this.$router.go(-1));
 					Toast.success('登陆成功').then(this.$router.go(-1));
-					
 				}, 2000);
 			}
 		}
@@ -86,8 +71,7 @@
 		align-items: center;
 		margin-top: 5rem;
 		margin-bottom: 4rem;
-	}
-
+	}	
 	.loginbtn {
 		display: flex;
 		justify-content: center;

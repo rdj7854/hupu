@@ -33,7 +33,7 @@
 </template>
 
 <script>
-
+import { Dialog  ,Toast } from 'vant';
 export default {
   data(){
     return{
@@ -53,8 +53,17 @@ export default {
       this.$router.go(-1)
     },
     clearHistory(){
-      this.history = []
-    }
+       Dialog.confirm({
+      title: '确定删除吗'
+      }).then(() => {
+        // on confirm
+     this.history = []
+		Toast.success('删除成功');
+      }).catch(() => {
+        // on cancel
+      });
+     }
+      
   },
   watch:{
     input(value){
@@ -65,6 +74,9 @@ export default {
       }
 
     }
+  },
+  mounted(){
+    this.history.push('勇士状元热门','湖人总冠军','雄鹿wwe','快船666')
   }
 }
 </script>
@@ -111,6 +123,9 @@ export default {
   font-size: 15px;
   color: #232931;
   border-radius: 15px;
-  background: #F5F5F5;
+  background: #ebebeb;
+}
+.search-item{
+  margin:5px
 }
 </style>

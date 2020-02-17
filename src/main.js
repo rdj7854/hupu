@@ -11,6 +11,7 @@ import Vant from 'vant';
 import 'vant/lib/index.css'
 
 
+
 Vue.config.productionTip = false;
 
 Vue.use(VueAxios, Axios);
